@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\UserAuthController;
+use App\Models\User;
+use App\Http\Controllers\BrandController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,27 +20,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//login page//
-Route::get('login', [UserAuthController::class, 'login']);
-Route::get('register', [UserAuthController::class, 'register']);
-Route::post('create', [UserAuthController::class, 'create'])->name('auth.create');
-Route::post('check', [UserAuthController::class, 'check'])->name('auth.check');
-Route::get('profile', [UserAuthController::class, 'profile'])->name('auth.profile');
-Route::get('logout', [UserAuthController::class, 'logout']);
-
-
 
 Route::get('/company/all', [CompanyController::class, 'AllCompany'])->name('all.company');
 Route::get('/add/company', [CompanyController::class, 'AddCompany'])->name('add.company');
 Route::post('/store/company', [CompanyController::class, 'StoreCompany'])->name('store.company');
-Route::get('/company/edit/{id}', [BrandController ::class, 'Edit']);
-Route::get('company/delete/{id}', [BrandController ::class, 'Delete']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('/company/edit/{id}', [CompanyController ::class, 'Edit']);
+Route::get('company/delete/{id}', [CompanyController ::class, 'Delete']);
 
-    $users= DB::table('users')->get();
-    return view('dashboard', compact('users'));
-})->name('dashboard');
+//brand//
+Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.Brand');
+Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
+Route::get('/brand/edit/{id}', [BrandController ::class, 'Edit']);
+Route::post('/brand/update/{id}', [BrandController ::class, 'Update']);
+Route::get('brand/delete/{id}', [BrandController ::class, 'Delete']);
 
-Auth::routes();
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+require __DIR__.'/auth.php';

@@ -42,7 +42,8 @@ public function StoreCompany( request $request){
 public function Delete($id){
     $image = company::find($id);
     $old_image=$image->company_image;
-    unlink($old_image);
+    
+    
 
 
     company::find($id)->delete();
@@ -50,7 +51,10 @@ public function Delete($id){
 }
 
 
-
+public function Edit($id){
+    $brands = company::find($id);
+    return view('admin.company.edit',compact('Companies'));
+}
 
 
 

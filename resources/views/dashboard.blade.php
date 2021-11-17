@@ -114,7 +114,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="analytics.html">
+                              <a class="sidenav-item-link" href="">
                                 <span class="nav-text">Brand</span>
                                 
                                 <span class="badge badge-success">new</span>
@@ -130,7 +130,7 @@
                   </li>
                 
 
-                
+               @yield('Brand') 
 
                 
 
