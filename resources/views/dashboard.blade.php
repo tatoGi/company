@@ -114,7 +114,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="">
+                              <a class="sidenav-item-link" href="{{ route('Brand.all') }}">
                                 <span class="nav-text">Brand</span>
                                 
                                 <span class="badge badge-success">new</span>
@@ -122,7 +122,14 @@
                               </a>
                             </li>
                           
-                        
+                            <li >
+                              <a class="sidenav-item-link" href="{{ route('Brand.all') }}">
+                                <span class="nav-text">Brand</span>
+                                
+                                <span class="badge badge-success">new</span>
+                                
+                              </a>
+                            </li>
 
                         
                       </div>
@@ -130,7 +137,6 @@
                   </li>
                 
 
-               @yield('Brand') 
 
                 
 

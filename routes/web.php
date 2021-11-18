@@ -28,11 +28,11 @@ Route::get('/company/edit/{id}', [CompanyController ::class, 'Edit']);
 Route::get('company/delete/{id}', [CompanyController ::class, 'Delete']);
 
 //brand//
-Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.Brand');
-Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
-Route::get('/brand/edit/{id}', [BrandController ::class, 'Edit']);
-Route::post('/brand/update/{id}', [BrandController ::class, 'Update']);
-Route::get('brand/delete/{id}', [BrandController ::class, 'Delete']);
+Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('Brand.all');
+Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('Brand.store');
+Route::get('/brand/edit/{id}', [BrandController ::class, 'Edits']);
+Route::post('/brand/update/{id}', [BrandController ::class, 'Updated']);
+Route::get('brand/delete/{id}', [BrandController ::class, 'Deleted']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

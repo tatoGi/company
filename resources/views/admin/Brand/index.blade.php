@@ -1,10 +1,11 @@
 @extends('dashboard')
 
-@section('Brand')
-<div class="py-12">
+@section('company')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<div class="ty-12" style="margin-left:20%; margin-top:7%; width:100%;">
        <div class="container">
            <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12" >
               @if( session('success'))
               <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ session('success')}}</strong>
@@ -13,7 +14,7 @@
                 </button>
               </div>
                 @endif
-              <div class="card-header">
+              <div class="card-header" style="width:100%;">
                 All Brand
 
               
@@ -21,11 +22,11 @@
            <table class="table table-dark table-hover">
   <thead>
     <tr>
-      <th scope="col" width="5%">SL No</th>
-      <th scope="col" width="15%">Brand Name</th>
-      <th scope="col" width="25%">Brand image</th>
-      <th scope="col" width="15%">Created At</th>
-      <th scope="col" width="15%">Action</th>
+      <th scope="col" width=" ">SL No</th>
+      <th scope="col" width=" ">Brand Name</th>
+      <th scope="col" width=" ">Brand image</th>
+      <th scope="col" width=" ">Created At</th>
+      <th scope="col" width=" ">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -63,13 +64,13 @@
 
            </div>
        </div>
-       <div class="col-md-4">
+       <div class="col-md-12">
        <div class="card text-center">
   <div class="card-header">
     Add brand
   </div>
   <div class="card-body">
-  <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('Brand.store') }}" method="POST" enctype="multipart/form-data">
 
  
     @csrf
@@ -107,4 +108,5 @@
 
        </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 @endsection

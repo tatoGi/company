@@ -13,7 +13,7 @@ class BrandController extends Controller
         return view('admin.brand.index' , compact('brands'));
     }
     public function StoreBrand(Request $request){
-    
+        $brand_image = $request->file('image');
         $validatedData = $request->validate([
             'brand_name' => 'required|unique:brands|min:4',
             'brand_image' => 'required|mimes:jpg,jpeg,png',
